@@ -1,0 +1,7 @@
+package org.sandbox;
+
+import javax.swing.JPanel;
+
+public class OvalPanel extends JPanel {
+
+}

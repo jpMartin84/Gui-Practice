@@ -1,0 +1,18 @@
+package org.sandbox;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
+public class MenuFrame extends JFrame{
+
+	public MenuFrame() {
+		super("Using JMenus");
+		
+		JMenu fileMenu = new JMenu("File");
+		fileMenu.setMnemonic('F');
+		
+		JMenuItem aboutItem = new JMenuItem("About...");
+		
+	}
+}

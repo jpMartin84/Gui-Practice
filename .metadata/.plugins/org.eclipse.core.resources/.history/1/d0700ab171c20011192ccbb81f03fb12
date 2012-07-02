@@ -1,0 +1,13 @@
+package org.sandbox;
+
+public class MenuTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

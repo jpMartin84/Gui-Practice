@@ -1,0 +1,77 @@
+package org.sandbox;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.plaf.basic.BasicComboBoxUI.ItemHandler;
+
+public class MenuFrame extends JFrame{
+	private final Color[] colorValues = {Color.BLACK, Color.BLUE, Color.RED, Color.GREEN};
+	
+	private JRadioButtonMenuItem[] colorItems;
+	private ButtonGroup colorButtonGroup;
+
+	public MenuFrame() {
+		super("Using JMenus");
+		
+		JMenu fileMenu = new JMenu("File"); //create file menu
+		fileMenu.setMnemonic('F');
+		
+		//add about... menu item to file menu
+		JMenuItem aboutItem = new JMenuItem("About...");
+		aboutItem.setMnemonic('A');
+		fileMenu.add(aboutItem);
+		aboutItem.addActionListener(
+			new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JOptionPane.showMessageDialog(MenuFrame.this, 
+							"This is an example\nof using menus",
+							"About", JOptionPane.PLAIN_MESSAGE);
+				}
+			}
+		);
+		
+		//add exit menu item to file menu
+		JMenuItem exitItem = new JMenuItem("Exit");
+		aboutItem.setMnemonic('x');
+		fileMenu.add(exitItem);
+		exitItem.addActionListener(
+			new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.exit(0);
+				}
+			}
+		);
+		
+		JMenuBar bar = new JMenuBar(); //create menu bar
+		setJMenuBar(bar); //add menu bar to application
+		bar.add(fileMenu); //add file menu to menu bar
+		
+		JMenu formatMenu = new JMenu("Format"); //create format menu
+		formatMenu.setMnemonic('r');
+		
+		//array listing string colors
+		String[] colors = {"Black", "Blue", "Red", "Green"};
+		
+		JMenu colorMenu = new JMenu("Color"); //create color menu
+		colorMenu.setMnemonic('C');
+		
+		colorItems = new JRadioButtonMenuItem[colors.length];
+		colorButtonGroup = new ButtonGroup();
+		ItemHandler itemHandler = new ItemHandler(); //handler for colors
+		
+		
+		bar.add(colorMenu);
+		
+	}
+}
